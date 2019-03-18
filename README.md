@@ -6,7 +6,7 @@ Dynamically create links from the views in the application.
 
 Using `npm install` download and intall all of the necessary dependencies
 
-`nodemon` will be installed, so you can change any node based JavaScript as have the server reload. View changes on the other hand
+`nodemon` will be installed, so you can change any node based JavaScript and have the server reload. View changes on the other hand
 so far require a hard restart.
 
 Use `npm start` to fire up the server and serve it to the browser on `localhost:\3010`
