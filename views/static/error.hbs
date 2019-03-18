@@ -1,0 +1,10 @@
+{{> header }}
+<h2 class="border bg-dark text-light p-3 mt-3">
+<i class="fa fa-exclamation-triangle text-warning"></i>    {{message}}
+</h2>
+<hr />
+<h3>{{error.status}}</h3>
+<pre>{{error.stack}}</pre>
+
+<p><a href="/"><i class="fa fa-arrow-circle-left"></i> Return Home</a></p>
+{{> footer }}

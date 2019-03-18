@@ -1,0 +1,24 @@
+{{> header }}
+{{> navigation }}
+
+<h4>{{description}}</h4>
+
+
+<div ng-app="addressApp">
+
+      {{!-- <ul class="nav nav-pills">
+        <li ng-class="nav-item"><a class="nav-link" ui-sref="home" ui-sref-active="active"><i class="fa fa-book"></i>&nbsp;Home</a></li>
+        <li ng-class="nav-item"><a class="nav-link" ui-sref="about" ui-sref-active="active">About</a></li>
+    </ul> --}}
+
+    <div ui-view></div>
+
+</div>
+
+<script src="../vendor/angular/angular.js"></script>
+<script src="../vendor/angular/angular-ui-router.min.js"></script>
+<script src="../app_address/app.js"></script>
+<script src="../app_address/dataAccess/ContactFactory.js"></script>
+<script src="../app_address/addressbook/bookController.js"></script>
+
+{{> footer }}

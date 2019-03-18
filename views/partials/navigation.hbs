@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+  {{#each data.links}}
+  <li class="nav-item">
+    <a class="nav-link {{#if this.active}}active{{/if}}" href="/pages/{{this.link}}">{{this.fileName}}</a>
+  </li>
+{{/each}}
+</ul>
