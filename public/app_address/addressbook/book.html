@@ -1,11 +1,13 @@
 <h2>Contact Management</h2>
 
 <ul class="nav nav-pills float-right">
-    <li ng-class="nav-item" >
-        <a href="" class="nav-link" ng-class="{active: toggle.displayType === 'list'}" ng-click="swapViews('list')"><i class="fa fa-list"></i>&nbsp; List</a>
+    <li ng-class="nav-item">
+        <a href="" class="nav-link" ng-class="{active: toggle.displayType === 'list'}" ng-click="swapViews('list')"><i
+                class="fa fa-list"></i>&nbsp; List</a>
     </li>
     <li ng-class="nav-item">
-        <a href="" class="nav-link" ng-class="{active: toggle.displayType === 'grid'}" ng-click="swapViews('grid')"><i class="fa fa-th"></i>&nbsp; Grid</a>
+        <a href="" class="nav-link" ng-class="{active: toggle.displayType === 'grid'}" ng-click="swapViews('grid')"><i
+                class="fa fa-th"></i>&nbsp; Grid</a>
     </li>
 
 </ul>
@@ -25,41 +27,39 @@
 <p style="padding: 10px;"></p>
 <table class="table table-bordered table-striped table-condensed" ng-show="addressList.length && toggle.displayType === 'list'">
     <thead>
-    <tr>
-        <th>
-            <a href="" ng-click="sortField ='firstname'; toggle.reverse = !toggle.reverse; toggle.caretOne = !toggle.caretOne">First
-                Name</a>
-            <span ng-class="toggle.caretOne ? 'caret' : ''"></span>
-        </th>
-        <th>
-            <a href="" ng-click="sortField = 'lastname'; toggle.reverse = !toggle.reverse; toggle.caretTwo = !toggle.caretTwo">Last
-                Name</a>
-            <span ng-class="toggle.caretTwo ? 'caret' : ''"></span>
-        </th>
-        <th>
-            <a href="" ng-click="sortField = 'citystate'; toggle.reverse = !toggle.reverse; toggle.caretThree = !toggle.caretThree">Address</a>
-            <span ng-class="toggle.caretThree ? 'caret' : ''"></span>
-        </th>
-        <th style="width: 150px;"></th>
-    </tr>
+        <tr>
+            <th>
+                <a href="" ng-click="sortField ='firstname'; toggle.reverse = !toggle.reverse; toggle.caretOne = !toggle.caretOne">First
+                    Name</a>
+                <span ng-class="toggle.caretOne ? 'fa fa-caret-down' : ''"></span>
+            </th>
+            <th>
+                <a href="" ng-click="sortField = 'lastname'; toggle.reverse = !toggle.reverse; toggle.caretTwo = !toggle.caretTwo">Last
+                    Name</a>
+                <span ng-class="toggle.caretTwo ? 'fa fa-caret-down' : ''"></span>
+            </th>
+            <th>
+                <a href="" ng-click="sortField = 'citystate'; toggle.reverse = !toggle.reverse; toggle.caretThree = !toggle.caretThree">Address</a>
+                <span ng-class="toggle.caretThree ? 'fa fa-caret-down' : ''"></span>
+            </th>
+            <th style="width: 150px;"></th>
+        </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
-        <td ng-bind="address.firstname"></td>
-        <td ng-bind="address.lastname"></td>
-        <td ng-bind="address.citystate"></td>
-        <td class="center-block">
-            <button ng-click="edit(address)" class="btn btn-primary btn-sm">edit</button>
-            <button ng-click="remove(address)" class="btn btn-danger btn-sm">delete</button>
-        </td>
-    </tr>
+        <tr ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
+            <td ng-bind="address.firstname"></td>
+            <td ng-bind="address.lastname"></td>
+            <td ng-bind="address.citystate"></td>
+            <td class="center-block">
+                <button ng-click="edit(address)" class="btn btn-primary btn-sm">edit</button>
+                <button ng-click="remove(address)" class="btn btn-danger btn-sm">delete</button>
+            </td>
+        </tr>
     </tbody>
 </table>
 
 <div ng-show="addressList.length && toggle.displayType === 'grid'">
-    <div style="width: 220px; margin-right: 5px; margin-bottom: 5px;"
-         class="card card-body float-left"
-         ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
+    <div style="width: 220px; margin-right: 5px; margin-bottom: 5px;" class="card card-body float-left" ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
         <div class="card-title">
             <span class="float-right"><a href="" ng-click="remove(address)" class="text-danger">&times;</a></span>
             <h4 ng-bind-template="{{address.firstname}} {{address.lastname}}"></h4>
