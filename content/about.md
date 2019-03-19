@@ -1,8 +1,8 @@
-# read-views-create-links
+## About the application
 
 Dynamically create links from the views in the application.
 
-## Instructions
+### Instructions
 
 Using `npm install` download and intall all of the necessary dependencies
 
@@ -11,7 +11,7 @@ so far require a hard restart.
 
 Use `npm start` to fire up the server and serve it to the browser on `localhost:\3010`
 
-## What happens?
+### What happens?
 
 When the server first starts up, the `file.service.js` file will read all of the hanblebar views which live under `views/pages/` from there
 it will trim off the `.hbs` extension, remove any undrescores which should be used to seperate words, and then create an object from file
@@ -25,7 +25,7 @@ Adding additional handlbars pages to the `views/pages/` directory will automatic
 single page application in this current collection of pages. As you will see, it too is automatically added to the collection and does render
 as a normal page and does have all of the functionality you would expect from a client side framework.
 
-## Notes / Gotcha's
+### Notes / Gotcha's
 
 You have to restart the server for now if you change the contents of the views. I'm working on getting around that.
 

@@ -1,4 +1,5 @@
 const fileListing = require("../services/file.service.js");
+const markDown = require('../services/markdown.service');
 
 module.exports = {
   register: function(app) {
@@ -15,10 +16,16 @@ module.exports = {
       let route = req.params.route;    
       let data = {
         title: fileListing.CreateFileTitle(route),
-        links: fileListing.CreatedFileList(route)
+        links: fileListing.CreatedFileList(route),
+        contents: ''
       };
-
-      res.render("pages/" + route, { data });
+      markDown.LoadContents(route);
+      markDown.LoadMarkDownFile(route).then(function(html) {  
+        if(html){
+          data.contents = html;         
+        }
+        res.render("pages/" + route, { data });      
+      });
     });
   }
 };

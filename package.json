@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www --watch views -e js,json,html,hbs"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -12,6 +12,7 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "nodemon": "1.17.4"
+    "nodemon": "1.17.4",
+    "showdown": "^1.9.0"
   }
 }
