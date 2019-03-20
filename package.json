@@ -1,9 +1,9 @@
 {
-  "name": "read-views-create-links-2",
+  "name": "read-views-create-links",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www --watch views -e js,json,html,hbs"
+    "start": "nodemon ./bin/www -e js,json,html,hbs"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

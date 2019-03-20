@@ -5,13 +5,13 @@ function createFileTitle(route) {
   return route.charAt(0).toUpperCase() + route.slice(1).replace(/_/g, " ");
 }
 
-function createFilelist(route) {
+function createdFilelist(route) {
   let fileslist = [];
 
   fs.readdir("views/pages/", (err, files) => {
     files.forEach(file => {
-      // remove extension and remove any underscores
-      let filename = file.slice(0, -4).replace(/_/g, " ");
+      // remove extension and remove any underscores or hypens
+      let filename = file.slice(0, -4).replace(/_/g, " ").replace(/-/g, ' ');
       let rowInfo = {
         fileName: filename,
         link: file.slice(0, -4),
@@ -37,5 +37,5 @@ function createFilelist(route) {
 
 module.exports = {
   CreateFileTitle: createFileTitle,
-  CreatedFileList: createFilelist
+  CreatedFileList: createdFilelist
 };

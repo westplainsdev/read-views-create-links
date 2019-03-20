@@ -1,30 +1,51 @@
 const fileListing = require("../services/file.service.js");
-const markDown = require('../services/markdown.service');
+const markDown = require("../services/markdown.service");
 
 module.exports = {
   register: function(app) {
     app.get("/", function(req, res, next) {
       let data = {
         title: "Home",
-        links: fileListing.CreatedFileList()
+        links: fileListing.CreatedFileList(),
+        contents: ""
       };
-
-      res.render("pages/home", { data });
+      // LoadContents returns a promise
+      markDown.LoadContents('home').then(function(html) {
+        if (html) {
+          data.contents = html;
+        }
+        res.render("pages/home", { data });
+      });
     });
 
     app.get("/pages/:route", function(req, res, next) {
-      let route = req.params.route;    
+      let route = req.params.route;
       let data = {
         title: fileListing.CreateFileTitle(route),
         links: fileListing.CreatedFileList(route),
-        contents: ''
+        contents: ""
       };
-      markDown.LoadContents(route);
-      markDown.LoadMarkDownFile(route).then(function(html) {  
-        if(html){
-          data.contents = html;         
+      // LoadContents returns a promise
+      markDown.LoadContents(route).then(function(html) {
+        if (html) {
+          data.contents = html;
         }
-        res.render("pages/" + route, { data });      
+        res.render("pages/" + route, { data });
+      });
+    });
+
+    app.get('/legal/', function(req, res, next){
+      let data = {
+        title: "Legal Information",
+        links: fileListing.CreatedFileList(),
+        contents: ""
+      };
+       // LoadContents returns a promise
+       markDown.LoadContents('license').then(function(html) {
+        if (html) {
+          data.contents = html;
+        }
+        res.render("static/license", { data });
       });
     });
   }

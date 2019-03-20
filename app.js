@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// prevent caching of our static assests specifally html views
+// prevent caching of our static assests specifally handlebar views
 app.use(express.static("static", {maxage : 0}))
 
 // register the navigation routes 
