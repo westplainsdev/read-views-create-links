@@ -1,0 +1,42 @@
+{{> header }}
+{{> navigation }}
+
+
+<link rel="stylesheet" href="../app_vue_router/css/style.css" />
+{{!-- cloudflare's vue.min is a prodution build CDN link --}}
+{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js"></script> --}}
+{{!-- jsdelivr is using a non minified version and allows Vue Dev tools to work with it  --}}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/http-vue-loader"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.min.js"></script>
+
+<div id="app">
+  <h2><i class="fa fa-map-signs"></i> VueJS Router Demo</h2>
+<hr />
+  <p>
+    This is an example displaying serveral ways to navigatite and pass
+    parameters to different VueJS componets.
+  </p>
+  <nav class="nav nav-pills">
+    <!-- use router-link component for navigation. -->
+    <!-- specify the link by passing an object to the `to` prop. -->
+    <router-link :to="{ name: 'userList'}" class="nav-item nav-link" active-class="active"><i class="fa fa-users"></i>
+      User List Demo</router-link>
+    <router-link :to="{ name: 'named'}" class="nav-item nav-link" active-class="active"><i class="fa fa-users"></i>
+      Named Views Demo</router-link>
+    <a class="nav-link disabled" href="#" tabindex="-1">Access User Component Directly <i class="fa fa-arrow-right"></i></a>
+    <router-link :to="{ name: 'user', params: { userId: 852 } }" class="nav-item nav-link" active-class="active"><i
+        class="fa fa-user"></i> User 852</router-link>
+    <router-link :to="{ name: 'user', params: { userId: 987, userData: { age: 28, name: 'Danny Enzio'} } }"
+      class="nav-item nav-link" active-class="active"><i class="fa fa-user"></i> User 987</router-link>
+  </nav>
+  <hr />
+  <section class="mainBody">
+    <router-view></router-view>
+  </section>
+</div>
+
+
+<script src="../app_vue_router/js/master.js"></script>
+
+{{> footer }}
