@@ -12,23 +12,25 @@ function createdFilelist(route) {
     files.forEach(file => {
       // remove extension and remove any underscores or hypens
       let filename = file.slice(0, -4).replace(/_/g, " ").replace(/-/g, ' ');
-      let rowInfo = {
+      let fileInfo = {
         fileName: filename,
         link: file.slice(0, -4),
         active: false
       };
-      if (rowInfo.link === "home") {
+      if (fileInfo.link === "home") {
         // undefined will happen at the '/' root of the application
-        if (route == undefined || route === rowInfo.link) {
-          rowInfo.active = true;
+        if(route === "unknown"){
+          fileInfo.active = false;
+        } else if (route == undefined || route === fileInfo.link) {
+          fileInfo.active = true;
         }
         // went want the home link always first.
-        fileslist.unshift(rowInfo);
+        fileslist.unshift(fileInfo);
       } else {
-        if (route === rowInfo.link) {
-          rowInfo.active = true;
+        if (route === fileInfo.link) {
+          fileInfo.active = true;
         }
-        fileslist.push(rowInfo);
+        fileslist.push(fileInfo);
       }
     });
   });

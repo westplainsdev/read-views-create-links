@@ -1,20 +1,34 @@
 <div class="bg-dark mb-3 shadow rounded fixed-top">
 
-<nav class="navbar navbar-expand-lg navbar-dark ">
-  <a class="navbar-brand" href="/"><strong>Dynamic Data</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      {{#each data.links}}
-      <a class="nav-link {{#if this.active}}active{{/if}}" href="/pages/{{this.link}}">{{this.fileName}}</a>
-      {{/each}}
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" href="/"><strong>Dynamic Data</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mr-auto">
+        {{#each data.links}}
+        <a class="nav-link {{#if this.active}}active{{/if}}" href="/pages/{{this.link}}">{{this.fileName}}</a>
+        {{/each}}
+        {{#if data.user.authenticated}}
+        <a class="nav-link {{#if data.active}}active{{/if}}" href="/secure/">secure page</a>
+        {{/if}}
+      </div>
+      <div class="navbar-nav">
+         {{#if data.user.authenticated}}
+        
+          <span class="text-light navbar-text">Welcome {{data.user.username}} &nbsp;</span>
+          <a href="/logout" class="nav-link">Sign Out</a>
+        
+        {{else}}
+       
+          <a href="/login" class="nav-link">Sign In</a>
+       
+        {{/if}}
+      </div>
     </div>
-  </div>
-</nav>
-
+  </nav>
 </div>
 
 {{!-- the closing main tag is found in the footer.hbs file. --}}

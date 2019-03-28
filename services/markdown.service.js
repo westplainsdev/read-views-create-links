@@ -16,7 +16,8 @@ function loadContents(route) {
   } else {
     // return this promise in case there are files that do not have markdown content.
     return new Promise(function(resolve, reject) {
-      let notFoundTemplate = `<h2><i class="fa fa-exclamation-triangle text-warning"></i> 204 No Content</h2>
+      let notFoundTemplate = `
+      <h2><i class="fa fa-exclamation-triangle text-warning"></i> 204 No Content</h2>
       <p>The server successfully processed the request, but is not returning any content.</p> 
       <p>The content may be available again in the future.</p>`;
       return resolve(notFoundTemplate);
