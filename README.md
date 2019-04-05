@@ -2,6 +2,8 @@
 
 Dynamically create links and content from the views in the application.
 
+![alt text](Solid-Foundations.PNG "Solid Foundations")
+
 ## Instructions
 
 Using `npm install` download and install all of the necessary dependencies
