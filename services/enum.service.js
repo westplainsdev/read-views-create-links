@@ -1,8 +1,8 @@
-function routeEnums(){
+function routeEnums() {
 
     return {
         unknown: "unknown"
-      }
+    }
 }
 
 function loginMessages() {
@@ -12,7 +12,15 @@ function loginMessages() {
     }
 }
 
+function folderPaths() {
+    return {
+        activePagePath: './views/pages/',
+        inactivePagePath: './inactive-pages/',
+    }
+}
+
 module.exports = {
     RouteEnums: routeEnums,
-    LoginMessages: loginMessages
+    LoginMessages: loginMessages,
+    FolderPaths: folderPaths
 }

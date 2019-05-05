@@ -21,8 +21,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Prevent back-button navigation to secure areas
+app.use(function (req, res, next) {
+  res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
+
 // prevent caching of our static assests specifally handlebar views
-app.use(express.static("static", {maxage : 0}))
+app.use(express.static("static", { maxage: 0 }))
 
 // register the navigation routes 
 const routes = require('./routes');
@@ -33,12 +39,12 @@ const api = require('./routes/api');
 api.register(app);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -47,5 +53,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('static/error');
 });
+
+
 
 module.exports = app;
