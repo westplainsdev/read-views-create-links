@@ -16,15 +16,15 @@
         {{/if}}
       </div>
       <div class="navbar-nav">
-         {{#if data.user.authenticated}}
-        
-          <span class="text-light navbar-text">Welcome {{data.user.username}} &nbsp;</span>
-          <a href="/logout" class="nav-link">Sign Out</a>
-        
+        {{#if data.user.authenticated}}
+
+        <span class="text-light navbar-text">Welcome {{data.user.username}} &nbsp;</span>
+        <a href="/logout" class="nav-link">Sign Out</a>
+
         {{else}}
-       
-          <a href="/login" class="nav-link">Sign In</a>
-       
+
+        <a href="/login" class="nav-link">Sign In</a>
+
         {{/if}}
       </div>
     </div>
