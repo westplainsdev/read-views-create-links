@@ -26,7 +26,7 @@ function createdFilelist(route) {
         } else if (route == undefined || route === fileInfo.link) {
           fileInfo.active = true;
         }
-        // went want the home link always first.
+        // we want the home link always first.
         fileslist.unshift(fileInfo);
       } else {
         if (route === fileInfo.link) {
