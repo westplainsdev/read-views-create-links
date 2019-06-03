@@ -1,5 +1,4 @@
 function routeEnums() {
-
     return {
         unknown: "unknown"
     }
