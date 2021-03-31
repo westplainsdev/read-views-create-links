@@ -13,6 +13,6 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "nodemon": "1.17.4",
-    "showdown": "^1.9.0"
+    "showdown": "^1.9.1"
   }
 }
