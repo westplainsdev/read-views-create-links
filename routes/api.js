@@ -35,6 +35,10 @@ module.exports = {
     
             res.send(url);
 
-        });      
+        });   
+        
+        app.get('/api/testFetch', function(req, res){
+            res.send('ajax fetch test response works');
+        });
     }
 };
